@@ -13,42 +13,62 @@ We will also be working with HTTP methods and Endpoints.
 
 ## Table of Contents {#table}
 [Project Overview/Description](#top)
+
 [Table of Contents](#table)
+
 [Installation](#intall)
+
 [Usage](#use)
+
 [Configuration](#configure)
+
 [API Documentation](#document)
+
 [Contributing](#contribute)
+
 [License](#license)
+
 [Authors](#author)
+
 [Acknowledgments](#ack)
 
 ## Installation {#install}
 Let's start by installing Node.js! You can install the proper Node.js version for your operating system [at the Node.js website](https://nodejs.org/en "Node.js website!")
 Now that we have Node.js installed, next up is our development environment, or a code/text editor. 
 > Note: For the sake of simplicity and having everything in one place, using Visual Studio Code (VSCode) is *recommended* but NOT required. 
+
 > The project assumes the usage of VSCode and will subsequently utilize extensions. Again, using VSCode is strictly **optional** but *recommended*. It is absolutely possible to complete the project without the use of VSCode. 
+
 To start your Node.js project, open up a terminal and navigate to the directory where you wish to keep the project, and type: `npm init`. The terminal will prompt you for setup specifications, and will initialize your node project. 
 Node is framework that is able to run JavaScript code, while *npm* stands for *node package manager*. Using npm, we are able to install and remove JavaScript packages, also known as **node modules**. 
 With the node package manager, we are able to use node modules in our project with just one command in the terminal. Let's move on to dependencies and packages we will be using in this project. 
 #### Dependencies
 > Note: npm allows truncating the `install` keyword in the package installation commands, so `install` can be substituted to `i`.
 - `bcrypt`: a password hashing function based on the Blowfish cipher, 1999
+
 `npm install bcrypt`
 - `dotenv`: loads environment variables from a `.env` file
+
 `npm install dotenv`
 - `express`: a web application framework that provides features for applications
+
 `npm install express`
 - `express-async-handler`: middleware for handling exceptions inside of async express routes
+
 `npm install express-async-handler`
 - `jsonwebtoken`: an open standard to share security information between two parties, a client and server. A typical token will consist of a header, a payload and a signature.
+
 `npm install jsonwebtoken`
 - `mongodb`: document oriented data platform
+
 `npm install mongodb`
 > Once again replaceable and optional, we will be using MongoDB to store data in documents with data schemas. 
+
 > Navigate to your browser, to the [MongoDB website](https://www.mongodb.com/ "MongoMongoMongoDBDBDB"), and sign up/log in. 
+
 > We will use MongoDB to store our data, and the *MongoDB for VSCode* extension made by MongoDB. This is once again optional and not strictly necessary for the project. It can be replaced by another application with similar functionality. 
 - `mongoose`: Object Data Modeling library for connecting MongoDB and Node.js
+
 `npm install mongoose`
 
 
