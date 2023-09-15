@@ -85,8 +85,11 @@ The Thunder Client extension allows us to send all different types of HTTP reque
 
 ## Configuration {#configure}
 I have a `.env` file for environment variables. Here are a list of the environment variables that I have set in my `.env` file:
+
 `PORT`: the port on which the application will listen
+
 `CONNECTION_STRING`: the URL of the MongoDB database
+
 `ACCESS_TOKEN_SECRET`: I have a 'secret' password set as an environment variable here. 
 > Note: Adding this access token in the `.env` file is absolutely **NOT** recommended for production level code!! Ensure that the `ACCESS_TOKEN_SECRET` environment variable is kept secret and not exposed in public repositories. 
 
