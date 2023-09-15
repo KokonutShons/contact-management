@@ -68,9 +68,7 @@ const updateContact = asyncHandler(async (req, res) => {
 //@route DELETE /api/contacts/:id
 //@access private
 const deleteContact = asyncHandler(async (req, res) => {
-    console.log("bruh");
     const contact = await Contact.findById(req.params.id);
-    console.log("momo");
     if (!contact) {
         res.status(404);
         throw new Error("Contact not found");
@@ -79,11 +77,8 @@ const deleteContact = asyncHandler(async (req, res) => {
         res.status(403);
         throw new Error("User don't have permission to update other user contacts");
     }
-    console.log("hello?");
     await Contact.deleteOne({ _id: req.params.id });
-    console.log("fml");
     res.status(200).json(contact);
-    console.log("kys");
 });
 
 module.exports = { 
