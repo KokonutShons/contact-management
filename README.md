@@ -73,8 +73,22 @@ With the node package manager, we are able to use node modules in our project wi
 
 
 ## Usage {#use}
+To start up the node project, navigate to terminal and input the command:
+
+`npm run dev`
+
+This will start up your node project instance. 
+
+We will be using the *Thunder Client* extension for VSCode made by Ranga Vadhineni. 
+This extension is a lightweight REST API Client Extension for VSCode with simple and clean design. 
+The Thunder Client extension allows us to send all different types of HTTP requests (such as GET, PUT, POST, DELETE), allowing for testing of API communication between our program and our database (in MongoDB). 
 
 ## Configuration {#configure}
+I have a `.env` file for environment variables. Here are a list of the environment variables that I have set in my `.env` file:
+`PORT`: the port on which the application will listen
+`CONNECTION_STRING`: the URL of the MongoDB database
+`ACCESS_TOKEN_SECRET`: I have a 'secret' password set as an environment variable here. 
+> Note: Adding this access token in the `.env` file is absolutely **NOT** recommended for production level code!! Ensure that the `ACCESS_TOKEN_SECRET` environment variable is kept secret and not exposed in public repositories. 
 
 ## API Documentation {#document}
 * CRUD
@@ -94,3 +108,4 @@ Mr. Dipesh Malvia
 
 
 09/01/2023
+09/11/2023
