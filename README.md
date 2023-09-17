@@ -1,4 +1,4 @@
-# contact-management {#top}
+# contact-management
 A contact manager application! 
 This project is a contact manager backend application. Following REST API conventions, the project covers CRUD (create, read, update, and delete) functionality for contacts and users. 
 Similarly, the application will allow for multiple users that are able to manage their own contacts. 
@@ -11,7 +11,7 @@ The application will utilize the following:
 
 We will also be working with HTTP methods and Endpoints.
 
-## Table of Contents {#table}
+## Table of Contents
 [Project Overview/Description](#top)
 
 [Table of Contents](#table)
@@ -24,15 +24,13 @@ We will also be working with HTTP methods and Endpoints.
 
 [API Documentation](#document)
 
-[Contributing](#contribute)
-
 [License](#license)
 
 [Authors](#author)
 
 [Acknowledgments](#ack)
 
-## Installation {#install}
+## Installation
 Let's start by installing Node.js! You can install the proper Node.js version for your operating system [at the Node.js website](https://nodejs.org/en "Node.js website!")
 Now that we have Node.js installed, next up is our development environment, or a code/text editor. 
 > Note: For the sake of simplicity and having everything in one place, using Visual Studio Code (VSCode) is *recommended* but NOT required. 
@@ -72,7 +70,7 @@ With the node package manager, we are able to use node modules in our project wi
 `npm install mongoose`
 
 
-## Usage {#use}
+## Usage
 To start up the node project, navigate to terminal and input the command:
 
 `npm run dev`
@@ -83,32 +81,90 @@ We will be using the *Thunder Client* extension for VSCode made by Ranga Vadhine
 This extension is a lightweight REST API Client Extension for VSCode with simple and clean design. 
 The Thunder Client extension allows us to send all different types of HTTP requests (such as GET, PUT, POST, DELETE), allowing for testing of API communication between our program and our database (in MongoDB). 
 
-## Configuration {#configure}
-I have a `.env` file for environment variables. Here are a list of the environment variables that I have set in my `.env` file:
+## Configuration
+A `.env` file allows for setting environment variables that handle credentials in key-value format for the program. Here are a list of the environment variables that are set in my `.env` file:
 
 `PORT`: the port on which the application will listen
 
 `CONNECTION_STRING`: the URL of the MongoDB database
 
-`ACCESS_TOKEN_SECRET`: I have a 'secret' password set as an environment variable here. 
-> Note: Adding this access token in the `.env` file is absolutely **NOT** recommended for production level code!! Ensure that the `ACCESS_TOKEN_SECRET` environment variable is kept secret and not exposed in public repositories. 
+`ACCESS_TOKEN_SECRET`: Setting a 'secret' password string as an environment variable here allows for authentification on the client side (locally). 
+> Note: Adding this access token in the `.env` file is **NOT** recommended for production level code!! Ensure that the `ACCESS_TOKEN_SECRET` environment variable is kept secret and not exposed in public repositories. 
 
-## API Documentation {#document}
-* CRUD
-* Contacts
+## API Documentation
+#### User
+* Register a user
+    * Endpoint: `POST /api/users/register`; allows users to register by providing a username, email, and password.
+    * Request Body: 
+        * `username` (string): The username of the user.
+        * `email` (string): The email address of the user.
+        * `password` (string): The password for the user.
+    * Response:
+        * `201 Created`: The user is successfully registered.
+        * `400 Bad Request`: If any of the fields are missing or invalid or if the user already exists.
+* Login user
+    * Endpoint: `POST /api/users/login`; allows users to login by providing their email and password.
+    * Request Body: 
+        * `email` (string): The email address of the user.
+        * `password` (string): The password for the user.
+    * Response:
+        * `200 OK`: If the user is successfully logged in, an access token is provided.
+        * `400 Bad Request`: If any of the fields are missing.
+        * `401 Unauthorized`: If the email or password is not valid.
+* Current user information
+    * Endpoint: `POST /api/users/current`; allows authenticated users to retrieve information about their own account.
+    * Authorization: Requires a valid access token obtained during login.
+    * Response:
+        * `200 OK`: Returns information about the current user.
+        * `401 Unauthorized`: If the access token is missing or invalid.
+#### Contacts
+* Get all contacts
+    * Endpoint: `GET /api/contacts`; allows authenticated users to retrieve a list of all their contacts.
+    * Authorization: Requires a valid access token.
+    * Response:
+        * `200 OK`: Returns a JSON array of contact objects.
+        * `401 Unauthorized`: If the access token is missing or invalid.
+* Create new contact
+    * Endpoint: `POST /api/contacts`; allows authenticated users to create a new contact.
+    * Authorization: Requires a valid access token.
+    * Request Body:
+        * `name` (string): The name of the contract.
+        * `email` (string): The email address of the contact.
+        * `phone` (string): The phone number of the contact.
+    * Response:
+        * `201 Created`: Returns the newly created contact object.
+        * `400 Bad Request`: If any of the required fields are missing.
+* Get contact
+    * Endpoint: `GET /api/contacts/:id`; allows authenticated users to retrieve a contact by its ID.
+    * Authorization: Requires a valid access token.
+    * Response: 
+        * `200 OK`: Returns the contact object.
+        * `404 Not Found`: If provided ID do not match any contacts.
+* Update contact
+    * Endpoint: `PUT /api/contacts/:id`; allows authenticated users to update a contact's information.
+    * Authorization: Requires a valid access token.
+    * Request Body: (include only the fields that need to be updated; all optional but must have at least one)
+        * `name` (string): The updated name of the contract.
+        * `email` (string): The updated email address of the contact.
+        * `phone` (string): The updated phone number of the contact.
+    * Response:
+        * `200 OK`: Returns the updated contact object.
+        * `404 Not Found`: If contact with provided ID is not found.
+        * `403 Forbidden`: If user does not have permission to update other users` contacts.
+* Delete contact
+    * Endpoint: `DELETE /api/contacts/:id`; allows authenticated users to delete a contact by its ID.
+    * Authorization: Requires a valid access token.
+    * Response: 
+        * `200 OK`: Returns the deleted contact object.
+        * `404 Not Found`: If contact with provided ID is not found.
+        * `403 Forbidden`: If user does not have permission to delete other users` contacts.
 
-## Contributing {#contribute}
+## License
+This project is licensed under the [MIT License](LICENSE).
 
-## License {#license}
+## Authors
+Sean Fujiwara :peach:
+[Github](https://github.com/KokonutShons) :purple_heart:
 
-## Authors {#author}
-Sean Fujiwara
-(info)
-
-## Acknowledgments {#ack}
-Mr. Dipesh Malvia
-
-
-
-09/01/2023
-09/11/2023
+## Acknowledgments
+Mr. Dipesh Malvia for their tutorials.
