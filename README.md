@@ -164,6 +164,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Authors
 Sean Fujiwara :peach:
+
 [Github](https://github.com/KokonutShons) :purple_heart:
 
 ## Acknowledgments
